@@ -19,8 +19,9 @@ public class HomeController {
     @GetMapping
     public String getCharacters(@RequestParam(defaultValue = "1") int page, Model model)
     {
-        Characters allCharacters = serviceApi.getAllCharacters(page);
+        Characters allCharacters = serviceApi.getCharactersList(page);
         int pagesCount = allCharacters.getInfo().getPages();
+        model.addAttribute("pages", allCharacters.getInfo().getPages());
         model.addAttribute("currentPage", page);
         model.addAttribute("previousPage", page == 1 ? 1 : page - 1);
         model.addAttribute("nextPage", page == pagesCount ? pagesCount : page + 1);

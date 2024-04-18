@@ -1,8 +1,12 @@
 package ru.gb.homework20240416.service;
 
 import ru.gb.homework20240416.domain.Characters;
+import ru.gb.homework20240416.domain.Result;
 
 public interface ServiceApi {
-    public Characters getAllCharacters(int page);
+
+    Characters getCharactersList(int page);
+
+    Result getCharacterInfo(int id);
 
 }
